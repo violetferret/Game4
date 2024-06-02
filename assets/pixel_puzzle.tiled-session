@@ -1,0 +1,22 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+    },
+    "map.height": 80,
+    "map.tileHeight": 18,
+    "map.tileWidth": 18,
+    "map.width": 240,
+    "openFiles": [
+    ],
+    "project": "pixel_puzzle.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+    ]
+}

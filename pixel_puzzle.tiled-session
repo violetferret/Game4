@@ -1,0 +1,56 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/S9/assets/tiny-town-tileset.tmx": {
+            "scale": 0.62,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 322.58064516129036,
+                "y": 200.80645161290326
+            }
+        },
+        "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/S9/assets/tiny-town-tileset.tmx#kenney-tiny-town": {
+            "scaleInDock": 1
+        },
+        "assets/level-1.tmx": {
+            "scale": 1.52,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 167.10526315789474,
+                "y": 476.6447368421053
+            }
+        },
+        "assets/level-1.tmx#background_tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "assets/level-1.tmx#base_tilemap_packed": {
+            "scaleInDock": 2.0323
+        },
+        "assets/level-1.tmx#farm_tilemap_packed": {
+            "scaleInDock": 2.4834
+        }
+    },
+    "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets",
+    "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets/tilemaps",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+    ],
+    "project": "pixel_puzzle.tiled-project",
+    "property.type": "bool",
+    "recentFiles": [
+        "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/S9/assets/tiny-town-tileset.tmx",
+        "assets/level-1.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
+}
