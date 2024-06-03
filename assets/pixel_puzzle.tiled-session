@@ -3,20 +3,43 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "level-1.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "": {
+            "scaleInEditor": 1
+        },
+        "level-1.tmx": {
+            "scale": 0.2439,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 662.1566215662156,
+                "y": 485.8548585485855
+            }
+        },
+        "level-1.tmx#background_tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "level-1.tmx#base_tilemap_packed": {
+            "scaleInDock": 2.2642
+        },
+        "level-1.tmx#farm_tilemap_packed": {
+            "scaleInDock": 1
+        }
     },
     "map.height": 80,
     "map.tileHeight": 18,
     "map.tileWidth": 18,
     "map.width": 240,
     "openFiles": [
+        "level-1.tmx"
     ],
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "level-1.tmx"
     ]
 }
