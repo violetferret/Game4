@@ -4,7 +4,8 @@ class LevelOne extends Phaser.Scene {
     }
 
     preload() {
-
+        // load animation plugin
+        this.load.scenePlugin('AnimatedTiles', './lib/AnimatedTiles.js', 'animatedTiles', 'animatedTiles');
     }
 
     create() {

@@ -16,8 +16,8 @@ class Load extends Phaser.Scene {
         // load levels
         // this.load.tilemapTiledJSON("start", "assets/start.tmj");
         this.load.tilemapTiledJSON("level-1", "assets/level-1.tmj");
-        // this.load.tilemapTiledJSON("level-2", "assets/level-2.tmj");
-        // this.load.tilemapTiledJSON("level-3", "assets/level-3.tmj");
+        this.load.tilemapTiledJSON("level-2", "assets/level-2.tmj");
+        this.load.tilemapTiledJSON("level-3", "assets/level-3.tmj");
         // this.load.tilemapTiledJSON("end", "assets/end.tmj");
 
         // load tilemaps as spritesheets
@@ -48,6 +48,8 @@ class Load extends Phaser.Scene {
     }
 
     create() {
+        // create walking animations for player character sprite
+        // TODO: fix for all types of characters to choose
         this.anims.create({
             key: 'walk',
             frames: this.anims.generateFrameNames('platformer_characters', {

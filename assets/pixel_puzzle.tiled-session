@@ -10,29 +10,118 @@
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
-        "level-1.tmx": {
-            "scale": 0.2439,
-            "selectedLayer": 5,
+        "level-1-background.tmj": {
+            "scale": 0.10522569444444443,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 662.1566215662156,
-                "y": 485.8548585485855
+                "x": 2889.0282131661443,
+                "y": 964.5933014354064
+            }
+        },
+        "level-1-background.tmj#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-1-background.tmx": {
+            "scale": 1.1744,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2626.021798365123,
+                "y": 1175.4938692098092
+            }
+        },
+        "level-1-background.tmx#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-1.tmx": {
+            "scale": 0.2611,
+            "selectedLayer": -1,
+            "viewCenter": {
+                "x": 329.37571811566454,
+                "y": 794.7146687093068
             }
         },
         "level-1.tmx#background_tilemap_packed": {
             "scaleInDock": 1
         },
         "level-1.tmx#base_tilemap_packed": {
-            "scaleInDock": 2.2642
+            "scaleInDock": 1.9275
         },
         "level-1.tmx#farm_tilemap_packed": {
+            "scaleInDock": 1.9721,
+            "scaleInEditor": 1
+        },
+        "level-2-background.tmx": {
+            "scale": 1.8076,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1570.5908386811238,
+                "y": 1077.948661208232
+            }
+        },
+        "level-2-background.tmx#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-2.tmx": {
+            "scale": 0.327,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3409.7859327217125,
+                "y": 787.4617737003058
+            }
+        },
+        "level-2.tmx#background_tilemap": {
+            "scaleInDock": 2.4741
+        },
+        "level-2.tmx#base_tilemap": {
+            "scaleInDock": 2.1021
+        },
+        "level-2.tmx#food_tilemap": {
+            "scaleInDock": 1.7961
+        },
+        "level-3-background.tmj": {
+            "scale": 0.3463,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2881.894311290788,
+                "y": 963.0378284724225
+            }
+        },
+        "level-3-background.tmj#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-3-background.tmx": {
+            "scale": 1.3615,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1538.7440323172973,
+                "y": 994.1241278002204
+            }
+        },
+        "level-3-background.tmx#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-3.tmx": {
+            "scale": 0.5275,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 216.11374407582935,
+                "y": 404.739336492891
+            }
+        },
+        "level-3.tmx#base_tilemap": {
             "scaleInDock": 1
         }
     },
+    "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets",
+    "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets/tilemaps",
     "map.height": 80,
-    "map.tileHeight": 18,
-    "map.tileWidth": 18,
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 24,
+    "map.tileWidth": 24,
     "map.width": 240,
     "openFiles": [
         "level-1.tmx"
@@ -40,6 +129,17 @@
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "level-1.tmx"
-    ]
+        "level-3-background.tmj",
+        "level-1-background.tmx",
+        "level-3.tmx",
+        "level-1.tmx",
+        "level-2.tmx",
+        "level-1-background.tmj",
+        "level-2-background.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
 }
