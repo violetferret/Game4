@@ -7,168 +7,224 @@
   <image source="tilemaps/base_tilemap_packed.png" width="360" height="162"/>
   <tile id="0">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="2">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="3">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="16">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="17">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="18">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="19">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="20">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="21">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="22">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="23">
    <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="36">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="37">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="38">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="39">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="56">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="57">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="58">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="59">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="76">
    <properties>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="77">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="78">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="79">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="98">
    <properties>
+    <property name="collideDown" type="bool" value="false"/>
     <property name="collides" type="bool" value="false"/>
-    <property name="collidesDown" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="99">
    <properties>
-    <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="118">
    <properties>
+    <property name="collideDown" type="bool" value="false"/>
     <property name="collides" type="bool" value="false"/>
-    <property name="collidesDown" type="bool" value="false"/>
    </properties>
   </tile>
   <tile id="119">
    <properties>
+    <property name="collides" type="bool" value="false"/>
+    <property name="oneWay" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="120">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="121">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="122">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="123">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
    </properties>
   </tile>
   <tile id="139">
    <properties>
+    <property name="collideDown" type="bool" value="false"/>
     <property name="collides" type="bool" value="true"/>
-    <property name="collidesDown" type="bool" value="false"/>
+   </properties>
+  </tile>
+  <tile id="140">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="141">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="142">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
+   </properties>
+  </tile>
+  <tile id="143">
+   <properties>
+    <property name="collideDown" type="bool" value="true"/>
+    <property name="collides" type="bool" value="true"/>
    </properties>
   </tile>
  </tileset>

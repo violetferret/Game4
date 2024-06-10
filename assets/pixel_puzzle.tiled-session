@@ -14,33 +14,33 @@
             "scaleInEditor": 1
         },
         "level-1-background.tmj": {
-            "scale": 0.10522569444444443,
+            "scale": 0.8349,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 2889.0282131661443,
-                "y": 964.5933014354064
+                "x": 360.5222182297281,
+                "y": 120.37369744879624
             }
         },
         "level-1-background.tmj#background_tilemap": {
             "scaleInDock": 1
         },
         "level-1-background.tmx": {
-            "scale": 1.1744,
+            "scale": 0.441,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 2626.021798365123,
-                "y": 1175.4938692098092
+                "x": 1034.0136054421769,
+                "y": -64.62585034013603
             }
         },
         "level-1-background.tmx#background_tilemap": {
             "scaleInDock": 1
         },
         "level-1.tmx": {
-            "scale": 0.2611,
-            "selectedLayer": -1,
+            "scale": 0.53,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 329.37571811566454,
-                "y": 794.7146687093068
+                "x": 613.2075471698113,
+                "y": 744.3396226415093
             }
         },
         "level-1.tmx#background_tilemap_packed": {
@@ -54,11 +54,11 @@
             "scaleInEditor": 1
         },
         "level-2-background.tmx": {
-            "scale": 1.8076,
+            "scale": 0.3294,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1570.5908386811238,
-                "y": 1077.948661208232
+                "x": 2216.1505768063143,
+                "y": 1264.4201578627808
             }
         },
         "level-2-background.tmx#background_tilemap": {
@@ -129,13 +129,14 @@
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "level-3-background.tmj",
+        "level-3-background.tmx",
         "level-1-background.tmx",
+        "level-2-background.tmx",
+        "level-1-background.tmj",
+        "level-3-background.tmj",
         "level-3.tmx",
         "level-1.tmx",
-        "level-2.tmx",
-        "level-1-background.tmj",
-        "level-2-background.tmx"
+        "level-2.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

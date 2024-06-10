@@ -28,7 +28,7 @@ let config = {
     },
     width: 1440,
     height: 900,
-    scene: [Load, StartScreen, LevelOne, LevelTwo, LevelThree, HUD, EndScreen]
+    scene: [StartScreen, Load, LevelOne, LevelTwo, LevelThree, HUD, EndScreen]
 }
 
 var cursors;

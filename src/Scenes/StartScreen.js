@@ -1,4 +1,4 @@
-class Load extends Phaser.Scene {
+class StartScreen extends Phaser.Scene {
     constructor() {
         super("startScreenScene");
     }
@@ -8,6 +8,9 @@ class Load extends Phaser.Scene {
     }
 
     create() {
+        this.scene.start("loadScene");
+    }
 
+    update() {
     }
 }
