@@ -101,16 +101,16 @@ class LevelOne extends Phaser.Scene {
         }, this);
 
         // movement vfx
-        // TODO: fix to be own particle atlas 
         my.vfx.walking = this.add.particles(-10, 0, "particles", {
             frame: ['particle.png', 'particle.png'],
-            // TODO: Try: add random: true
+            // TODO: Try: add 
+            random: true,
             scale: { start: .8, end: .2 },
             // TODO: Try: 
             maxAliveParticles: 10,
             lifespan: 600,
             // TODO: Try: 
-            gravityY: -200,
+            gravityY: -100,
             alpha: { start: 1, end: 0.1 },
         });
 
