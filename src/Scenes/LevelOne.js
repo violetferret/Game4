@@ -13,7 +13,7 @@ class LevelOne extends Phaser.Scene {
         this.ACCELERATION = 250;
         this.DRAG = 4000;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1300;
-        this.JUMP_VELOCITY = -600;
+        this.JUMP_VELOCITY = -500;
         this.PARTICLE_VELOCITY = 50;
         this.SCALE = 2.0;
     }
@@ -45,14 +45,6 @@ class LevelOne extends Phaser.Scene {
         this.backgroundLayer.setScrollFactor(.5);
 
         // make layers collidable
-        // this.treeLeavesLayer.setCollisionByProperty({
-        //     collides: true
-        // });
-
-        // this.treeTrunksLayer.setCollisionByProperty({
-        //     collides: true
-        // });
-
         this.groundLayer.setCollisionByProperty({
             collides: true
         });
@@ -61,8 +53,8 @@ class LevelOne extends Phaser.Scene {
             collides: true
         });
         
-        // layers 
-
+        // layers with one-way platforms
+        // credit to https://cedarcantab.wixsite.com/website-1/post/one-way-pass-through-platforms-in-phaser-3-tile-maps for implementation
         this.treeLeavesLayer.forEachTile(tile => {
             if (tile.properties["oneWay"]) {
               tile.setCollision(false, false, true, false);
@@ -109,19 +101,20 @@ class LevelOne extends Phaser.Scene {
         }, this);
 
         // movement vfx
+        // TODO: fix to be own particle atlas 
+        my.vfx.walking = this.add.particles(-10, 0, "particles", {
+            frame: ['particle.png', 'particle.png'],
+            // TODO: Try: add random: true
+            scale: { start: .8, end: .2 },
+            // TODO: Try: 
+            maxAliveParticles: 10,
+            lifespan: 600,
+            // TODO: Try: 
+            gravityY: -200,
+            alpha: { start: 1, end: 0.1 },
+        });
 
-        // my.vfx.walking = this.add.particles(0, 0, "kenny-particles", {
-        //     frame: ['smoke_03.png', 'smoke_09.png'],
-        //     // frame: ['circle_05'],
-        //     // TODO: Try: add random: true
-        //     scale: { start: 0.01, end: 0.05 },
-        //     // TODO: Try: maxAliveParticles: 8,
-        //     lifespan: 350,
-        //     // TODO: Try: gravityY: -400,
-        //     alpha: { start: 1, end: 0.1 },
-        // });
-
-        // my.vfx.walking.stop();
+        my.vfx.walking.stop();
 
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(my.sprite.player, true, 0.25, 0.25); // (target, [,roundPixels][,lerpX][,lerpY])
@@ -131,21 +124,17 @@ class LevelOne extends Phaser.Scene {
     }
 
     update() {
-
-        // this.treeLeavesLayer.collides = true;
-
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
             my.sprite.player.anims.play('walk', true);
-            // my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth / 2 - 10, my.sprite.player.displayHeight / 2 - 5, false);
+            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth / 2 - 10, my.sprite.player.displayHeight / 2 - 5, false);
 
-            // my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
+            my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
             // Only play smoke effect if touching the ground
-
             if (my.sprite.player.body.blocked.down) {
-                // my.vfx.walking.start();
+                my.vfx.walking.start();
             }
 
         } else if (cursors.right.isDown) {
@@ -154,14 +143,14 @@ class LevelOne extends Phaser.Scene {
             my.sprite.player.anims.play('walk', true);
 
             // TODO: add particle following code here
-            // my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth / 2 - 10, my.sprite.player.displayHeight / 2 - 5, false);
+            my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth / 2 - 10, my.sprite.player.displayHeight / 2 - 5, false);
 
-            // my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
+            my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
             // Only play smoke effect if touching the ground
 
             if (my.sprite.player.body.blocked.down) {
-                // my.vfx.walking.start();
+                my.vfx.walking.start();
             }
 
 
@@ -171,7 +160,7 @@ class LevelOne extends Phaser.Scene {
             my.sprite.player.setAccelerationX(0);
             my.sprite.player.setDragX(this.DRAG);
             my.sprite.player.anims.play('idle');
-            // my.vfx.walking.stop();
+            my.vfx.walking.stop();
         }
 
         // player jump

@@ -48,6 +48,7 @@ class Load extends Phaser.Scene {
         });
 
         // TODO: load particle multiatlas
+        this.load.multiatlas("particles", "assets/particles.json");
         
         // TODO: load audio
         
