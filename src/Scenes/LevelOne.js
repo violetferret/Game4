@@ -10,10 +10,10 @@ class LevelOne extends Phaser.Scene {
 
     init() {
         // variables and settings
-        this.ACCELERATION = 250;
+        this.ACCELERATION = 90;
         this.DRAG = 4000;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1300;
-        this.JUMP_VELOCITY = -500;
+        this.JUMP_VELOCITY = -440;
         this.PARTICLE_VELOCITY = 50;
         this.SCALE = 2.0;
     }
@@ -52,26 +52,26 @@ class LevelOne extends Phaser.Scene {
         this.groundExtraLayer.setCollisionByProperty({
             collides: true
         });
-        
+
         // layers with one-way platforms
         // credit to https://cedarcantab.wixsite.com/website-1/post/one-way-pass-through-platforms-in-phaser-3-tile-maps for implementation
         this.treeLeavesLayer.forEachTile(tile => {
             if (tile.properties["oneWay"]) {
-              tile.setCollision(false, false, true, false);
+                tile.setCollision(false, false, true, false);
             }
-         });
+        });
 
-         this.treeTrunksLayer.forEachTile(tile => {
+        this.treeTrunksLayer.forEachTile(tile => {
             if (tile.properties["oneWay"]) {
-              tile.setCollision(false, false, true, false);
+                tile.setCollision(false, false, true, false);
             }
-         });
+        });
 
-         this.plantsLayer.forEachTile(tile => {
+        this.plantsLayer.forEachTile(tile => {
             if (tile.properties["oneWay"]) {
-              tile.setCollision(false, false, true, false);
+                tile.setCollision(false, false, true, false);
             }
-         });
+        });
 
         // start animate plugin
         this.animatedTiles.init(this.map);
@@ -152,8 +152,6 @@ class LevelOne extends Phaser.Scene {
             if (my.sprite.player.body.blocked.down) {
                 my.vfx.walking.start();
             }
-
-
 
         } else {
             // Set acceleration to 0 and have DRAG take over
