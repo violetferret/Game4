@@ -10,10 +10,10 @@ class LevelOne extends Phaser.Scene {
 
     init() {
         // variables and settings
-        this.ACCELERATION = 90;
+        this.ACCELERATION = 200;
         this.DRAG = 4000;    // DRAG < ACCELERATION = icy slide
         this.physics.world.gravity.y = 1300;
-        this.JUMP_VELOCITY = -440;
+        this.JUMP_VELOCITY = -500;
         this.PARTICLE_VELOCITY = 50;
         this.SCALE = 2.0;
     }
@@ -83,10 +83,10 @@ class LevelOne extends Phaser.Scene {
         my.sprite.player.setCollideWorldBounds(true);
 
         // enable collision handling
-        this.physics.add.collider(my.sprite.player, this.treeLeavesLayer);
-        this.physics.add.collider(my.sprite.player, this.treeTrunksLayer);
-        this.physics.add.collider(my.sprite.player, this.groundLayer);
-        this.physics.add.collider(my.sprite.player, this.plantsLayer);
+        this.treeLeavesCollider = this.physics.add.collider(my.sprite.player, this.treeLeavesLayer);
+        this.treeTrunksCollider = this.physics.add.collider(my.sprite.player, this.treeTrunksLayer);
+        this.groundCollider = this.physics.add.collider(my.sprite.player, this.groundLayer);
+        this.plantsCollider = this.physics.add.collider(my.sprite.player, this.plantsLayer);
 
         // set up Phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();
@@ -116,11 +116,14 @@ class LevelOne extends Phaser.Scene {
 
         my.vfx.walking.stop();
 
+        // create camera
         this.cameras.main.setBounds(0, 0, this.map.widthInPixels, this.map.heightInPixels);
         this.cameras.main.startFollow(my.sprite.player, true, 0.25, 0.25); // (target, [,roundPixels][,lerpX][,lerpY])
         this.cameras.main.setDeadzone(50, 50);
         this.cameras.main.setZoom(this.SCALE);
 
+        // create blocks
+        my.sprite.block1 = this.physics.add.sprite(30, 530, "platformer_characters", "tile_0006.png");
     }
 
     update() {
@@ -147,8 +150,7 @@ class LevelOne extends Phaser.Scene {
 
             my.vfx.walking.setParticleSpeed(this.PARTICLE_VELOCITY, 0);
 
-            // Only play smoke effect if touching the ground
-
+            // Only play effect if touching the ground
             if (my.sprite.player.body.blocked.down) {
                 my.vfx.walking.start();
             }
@@ -171,9 +173,16 @@ class LevelOne extends Phaser.Scene {
         }
         // credit to this Phaser forum post for this funcitonality: 
         // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
-        if (my.sprite.player.body.touching.down && Phaser.Input.Keyboard.JustDown(cursors.down) && my.sprite.player.body.checkCollision.down) {
-            drop();
-            this.time.delayedCall(200, dropExpire);
+        if (Phaser.Input.Keyboard.JustDown(cursors.down) /* && my.sprite.player.body.checkCollision.down */) {
+
+            this.drop(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider);
+        } // else {
+            // this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider);
+            // this.time.delayedCall(5000, this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider), null, this);
+        // }
+
+        if ((Phaser.Input.Keyboard.JustUp(cursors.down))) {
+            this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider)
         }
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
@@ -183,12 +192,17 @@ class LevelOne extends Phaser.Scene {
 
     // credit to this Phaser forum post for these functions: 
     // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
-    drop() {
+    drop(treeLeavesCollider, treeTrunksCollider, plantsCollider) {
         my.sprite.player.setVelocityY(150);
-        my.sprite.player.body.checkCollision.down = false;
+        treeLeavesCollider.active = false;
+        treeTrunksCollider.active = false;
+        plantsCollider.active = false;
     }
 
-    dropExpire() {
-        my.sprite.player.body.checkCollision.down = true;
+    dropExpire(treeLeavesCollider, treeTrunksCollider, plantsCollider) {
+        // my.sprite.player.body.checkCollision.down = true;
+        treeLeavesCollider.active = true;
+        treeTrunksCollider.active = true;
+        plantsCollider.active = true;
     }
 }

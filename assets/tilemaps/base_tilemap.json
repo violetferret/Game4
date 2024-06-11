@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "assets/tilemaps/base_tilemap.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 362,
+				"h": 163
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "base_tilemap_packed.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 360,
+						"h": 162
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 360,
+						"h": 161
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 360,
+						"h": 161
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:6e3ee0a8be3c0995c31279be937f9db2:d3c06fefe9ec4f8461ac33ef7d0e4eb4:b3dd1a1f22c572f8259323033fa891d4$"
+	}
+}

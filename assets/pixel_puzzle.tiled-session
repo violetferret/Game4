@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "level-1.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
         "."
     ],
@@ -39,15 +39,16 @@
             "scale": 0.53,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 613.2075471698113,
-                "y": 744.3396226415093
+                "x": 2159.433962264151,
+                "y": 708.4905660377358
             }
         },
         "level-1.tmx#background_tilemap_packed": {
             "scaleInDock": 1
         },
         "level-1.tmx#base_tilemap_packed": {
-            "scaleInDock": 1.9275
+            "scaleInDock": 1.9275,
+            "scaleInEditor": 1
         },
         "level-1.tmx#farm_tilemap_packed": {
             "scaleInDock": 1.9721,
@@ -62,6 +63,23 @@
             }
         },
         "level-2-background.tmx#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-2.tmj": {
+            "scale": 0.1398611111111111,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 3374.7765640516386,
+                "y": 1598.0139026812315
+            }
+        },
+        "level-2.tmj#background_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-2.tmj#base_tilemap": {
+            "scaleInDock": 1
+        },
+        "level-2.tmj#food_tilemap": {
             "scaleInDock": 1
         },
         "level-2.tmx": {
@@ -124,18 +142,20 @@
     "map.tileWidth": 24,
     "map.width": 240,
     "openFiles": [
-        "level-1.tmx"
+        "level-1.tmx",
+        "level-2.tmj"
     ],
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "level-1.tmx",
+        "level-2.tmj",
         "level-3-background.tmx",
         "level-1-background.tmx",
         "level-2-background.tmx",
         "level-1-background.tmj",
         "level-3-background.tmj",
         "level-3.tmx",
-        "level-1.tmx",
         "level-2.tmx"
     ],
     "tileset.embedInMap": true,
