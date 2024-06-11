@@ -135,7 +135,7 @@ class LevelOne extends Phaser.Scene {
         my.sprite.block4 = this.physics.add.sprite(4000, 900, "tilemap", "tile_0006.png");
         my.sprite.block4.setScale(4);
 
-        // make collidable
+        // make blocks collidable
         this.physics.add.collider(my.sprite.block1, this.groundLayer);
         this.physics.add.collider(my.sprite.block1, my.sprite.player);
 
@@ -149,7 +149,33 @@ class LevelOne extends Phaser.Scene {
 
         this.physics.add.collider(my.sprite.block4, this.groundLayer);
         this.physics.add.collider(my.sprite.block4, my.sprite.player);
+    
+        // add sound effects
+        this.sound.stopAll();
+        this.soundPlaying = false;
+
+        this.grassWalkSound = this.sound.add("grassWalk");
+        this.grassWalkSound.loop = true;
+        this.grassWalkSound.volume = 1;
+
+        this.woodWalkSound = this.sound.add("woodWalk");
+        this.woodWalkSound.loop = true;
+        this.woodWalkSound.volume = 1;
+
+        this.coinsSound = this.sound.add("coins");
+        this.coinsSound.volume = 1;
+
+        this.playerFallSound = this.sound.add("playerFall");
+        this.playerFallSound.volume = 1;
+
+        this.playerJumpSound = this.sound.add("jump");
+        this.playerJumpSound.volume = 1;
         
+        // play music
+        this.levelOneMusic = this.sound.add("levelOneMusic");
+        this.levelOneMusic.loop = true;
+        this.levelOneMusic.volume = 0.5;
+        this.levelOneMusic.play();
     }
 
     update() {
@@ -217,8 +243,9 @@ class LevelOne extends Phaser.Scene {
         }
 
         // go to next scene
-        if (my.sprite.player.x >= 1430) {
+        if (my.sprite.player.x >= 4300) {
             this.scene.start("levelTwoScene");
+            this.levelOneMusic.stop();
         }
     }
 

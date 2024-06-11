@@ -146,7 +146,7 @@
         "level-2.tmj"
     ],
     "project": "pixel_puzzle.tiled-project",
-    "property.type": "bool",
+    "property.type": "string",
     "recentFiles": [
         "level-1.tmx",
         "level-2.tmj",

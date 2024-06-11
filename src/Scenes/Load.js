@@ -50,11 +50,24 @@ class Load extends Phaser.Scene {
             frameHeight: 18
         });
 
-        // TODO: load particle multiatlas
+        // load particle multiatlas
         this.load.multiatlas("particles", "assets/particles.json");
 
         // TODO: load audio
-        
+        // "On My Way" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+        this.load.audio("levelOneMusic", "assets/audio/On My Way.mp3");
+
+        // "Rainbows" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+        this.load.audio("levelTwoMusic", "assets/audio/Rainbows.mp3");
+
+        // "Almost New" Kevin MacLeod (incompetech.com) Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/
+        this.load.audio("levelThreeMusic", "assets/audio/Almost New.mp3");
+
+        this.load.audio("grassWalk", "assets/audio/footstep_grass_004.ogg");
+        this.load.audio("woodWalk", "assets/audio/footstep_wood_004.ogg");
+        this.load.audio("coins", "assets/audio/handleCoins2.ogg");
+        this.load.audio("playerFall", "assets/audio/impactPunch_heavy_000.ogg");
+        this.load.audio("jump", "assets/audio/select_006.ogg");
     }
 
     create() {
