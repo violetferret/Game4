@@ -78,7 +78,7 @@ class LevelOne extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(30, 530, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(30, 750, "platformer_characters", "tile_0006.png");
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
@@ -123,10 +123,37 @@ class LevelOne extends Phaser.Scene {
         this.cameras.main.setZoom(this.SCALE);
 
         // create blocks
-        my.sprite.block1 = this.physics.add.sprite(30, 530, "platformer_characters", "tile_0006.png");
+        my.sprite.block1 = this.physics.add.sprite(450, 850, "tilemap", "tile_0006.png");
+        my.sprite.block1.setScale(2.5);
+
+        my.sprite.block2 = this.physics.add.sprite(1300, 1050, "tilemap", "tile_0006.png");
+        my.sprite.block2.setScale(5);
+
+        my.sprite.block3 = this.physics.add.sprite(1200, 1050, "tilemap", "tile_0006.png");
+        my.sprite.block3.setScale(3);
+
+        my.sprite.block4 = this.physics.add.sprite(4000, 900, "tilemap", "tile_0006.png");
+        my.sprite.block4.setScale(4);
+
+        // make collidable
+        this.physics.add.collider(my.sprite.block1, this.groundLayer);
+        this.physics.add.collider(my.sprite.block1, my.sprite.player);
+
+        this.physics.add.collider(my.sprite.block2, this.groundLayer);
+        this.physics.add.collider(my.sprite.block2, my.sprite.player);
+        this.physics.add.collider(my.sprite.block2, my.sprite.block3);
+        this.physics.add.collider(my.sprite.block3, my.sprite.block2);
+
+        this.physics.add.collider(my.sprite.block3, this.groundLayer);
+        this.physics.add.collider(my.sprite.block3, my.sprite.player);
+
+        this.physics.add.collider(my.sprite.block4, this.groundLayer);
+        this.physics.add.collider(my.sprite.block4, my.sprite.player);
+        
     }
 
     update() {
+        console.log(my.sprite.player.x, my.sprite.player.y)
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
@@ -187,6 +214,11 @@ class LevelOne extends Phaser.Scene {
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
+        }
+
+        // go to next scene
+        if (my.sprite.player.x >= 1430) {
+            this.scene.start("levelTwoScene");
         }
     }
 

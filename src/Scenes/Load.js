@@ -8,7 +8,8 @@ class Load extends Phaser.Scene {
         this.load.atlas("platformer_characters", "assets/tilemaps/character_tilemap_packed.png", "assets/tilemaps/character_tilemap.json");
 
         // load atlas for blocks
-        this.load.atlas("base_tilemap", "assets/tilemaps/base_tilemap.png", "assets/tilemaps/base_tilemap.json")
+        this.load.atlas("tilemap", "assets/tilemaps/tilemap.png", "assets/tilemaps/tilemap.json");
+
         // load tilemaps
         this.load.image("background_tilemap_tiles", "assets/tilemaps/background_tilemap_packed.png");
         this.load.image("base_tilemap_tiles", "assets/tilemaps/base_tilemap_packed.png");
