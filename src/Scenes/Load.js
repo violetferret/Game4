@@ -18,6 +18,7 @@ class Load extends Phaser.Scene {
 
         // load levels
         // this.load.tilemapTiledJSON("start", "assets/start.tmj");
+
         this.load.tilemapTiledJSON("level-1", "assets/level-1.tmj");
         this.load.tilemapTiledJSON("level-1-background", "assets/level-1-background.tmj");
 
@@ -49,6 +50,9 @@ class Load extends Phaser.Scene {
             frameWidth: 18,
             frameHeight: 18
         });
+
+        // load platform
+        this.load.image("cloud", "assets/tilemaps/cloud.png");
 
         // load particle multiatlas
         this.load.multiatlas("particles", "assets/particles.json");

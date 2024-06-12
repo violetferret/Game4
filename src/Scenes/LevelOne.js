@@ -198,7 +198,6 @@ class LevelOne extends Phaser.Scene {
         });
 
         // start HUD
-        //this.HUD = new HUD();
         this.scene.launch("hudScene", "levelOneScene");
     }
 
