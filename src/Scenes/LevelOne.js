@@ -16,6 +16,9 @@ class LevelOne extends Phaser.Scene {
         this.JUMP_VELOCITY = -500;
         this.PARTICLE_VELOCITY = 50;
         this.SCALE = 2.0;
+
+        // amnt of coins 
+        this.coinsAmount = 0;
     }
 
     create() {
@@ -30,7 +33,6 @@ class LevelOne extends Phaser.Scene {
         this.background_tileset = this.background_map.addTilesetImage("background_tilemap", "background_tilemap_tiles");
         this.base_tileset = this.map.addTilesetImage("base_tilemap_packed", "base_tilemap_tiles");
         this.farm_tileset = this.map.addTilesetImage("farm_tilemap_packed", "farm_tilemap_tiles");
-        // this.food_tileset = this.map.addTilesetImage("food_tilemap_packed", "food_tilemap_tiles");
 
         // load layers
         this.backgroundLayer = this.background_map.createLayer("Background", this.background_tileset, 0, 0);
@@ -149,18 +151,18 @@ class LevelOne extends Phaser.Scene {
 
         this.physics.add.collider(my.sprite.block4, this.groundLayer);
         this.physics.add.collider(my.sprite.block4, my.sprite.player);
-    
+
         // add sound effects
         this.sound.stopAll();
         this.soundPlaying = false;
 
         this.grassWalkSound = this.sound.add("grassWalk");
         this.grassWalkSound.loop = true;
-        this.grassWalkSound.volume = 1;
+        this.grassWalkSound.volume = 0.25;
 
         this.woodWalkSound = this.sound.add("woodWalk");
         this.woodWalkSound.loop = true;
-        this.woodWalkSound.volume = 1;
+        this.woodWalkSound.volume = 0.5;
 
         this.coinsSound = this.sound.add("coins");
         this.coinsSound.volume = 1;
@@ -169,17 +171,39 @@ class LevelOne extends Phaser.Scene {
         this.playerFallSound.volume = 1;
 
         this.playerJumpSound = this.sound.add("jump");
-        this.playerJumpSound.volume = 1;
-        
+        this.playerJumpSound.volume = .25;
+
         // play music
         this.levelOneMusic = this.sound.add("levelOneMusic");
         this.levelOneMusic.loop = true;
-        this.levelOneMusic.volume = 0.5;
+        this.levelOneMusic.volume = 0.25;
         this.levelOneMusic.play();
+
+        // create coins
+        this.coins = this.map.createFromObjects("Coins", {
+            name: "coin",
+            key: "base_tilemap_sheet",
+            frame: 151
+        });
+
+        this.physics.world.enable(this.coins, Phaser.Physics.Arcade.STATIC_BODY);
+
+        this.coinGroup = this.add.group(this.coins);
+
+        // handle collisison with coins
+        this.physics.add.overlap(my.sprite.player, this.coinGroup, (obj1, obj2) => {
+            obj2.destroy(); // remove coin on overlap
+            this.sound.play("coins");
+            this.coinsAmount++;
+        });
+
+        // start HUD
+        //this.HUD = new HUD();
+        this.scene.launch("hudScene", "levelOneScene");
     }
 
     update() {
-        console.log(my.sprite.player.x, my.sprite.player.y)
+        // console.log(my.sprite.player.x, my.sprite.player.y)
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
@@ -191,6 +215,12 @@ class LevelOne extends Phaser.Scene {
             // Only play smoke effect if touching the ground
             if (my.sprite.player.body.blocked.down) {
                 my.vfx.walking.start();
+
+                // play sound effect
+                if (!this.soundPlaying) {
+                    this.grassWalkSound.play();
+                    this.soundPlaying = true;
+                }
             }
 
         } else if (cursors.right.isDown) {
@@ -206,6 +236,19 @@ class LevelOne extends Phaser.Scene {
             // Only play effect if touching the ground
             if (my.sprite.player.body.blocked.down) {
                 my.vfx.walking.start();
+
+                // play sound effect
+                if (!this.soundPlaying) {
+                    // TODO: fix sound effects when walking
+                    // if ((this.map.getTileAt(my.sprite.player.x, my.sprite.player.y, this.treeTrunksLayer) == 99)
+                    // | (this.map.getTileAt(my.sprite.player.x, my.sprite.player.y, this.treeTrunksLayer) == 119)) {
+                    //     this.woodWalkSound.play();
+                    // } else {
+                    this.grassWalkSound.play();
+                    //}
+                    // TODO: fix bug when this happens in the air?
+                    this.soundPlaying = true;
+                }
             }
 
         } else {
@@ -214,6 +257,9 @@ class LevelOne extends Phaser.Scene {
             my.sprite.player.setDragX(this.DRAG);
             my.sprite.player.anims.play('idle');
             my.vfx.walking.stop();
+
+            this.grassWalkSound.stop();
+            this.soundPlaying = false;
         }
 
         // player jump
@@ -223,6 +269,7 @@ class LevelOne extends Phaser.Scene {
         }
         if (my.sprite.player.body.blocked.down && Phaser.Input.Keyboard.JustDown(cursors.up)) {
             my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+            this.playerJumpSound.play();
         }
         // credit to this Phaser forum post for this funcitonality: 
         // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
@@ -230,8 +277,8 @@ class LevelOne extends Phaser.Scene {
 
             this.drop(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider);
         } // else {
-            // this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider);
-            // this.time.delayedCall(5000, this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider), null, this);
+        // this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider);
+        // this.time.delayedCall(5000, this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider), null, this);
         // }
 
         if ((Phaser.Input.Keyboard.JustUp(cursors.down))) {

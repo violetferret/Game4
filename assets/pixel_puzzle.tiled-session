@@ -36,11 +36,11 @@
             "scaleInDock": 1
         },
         "level-1.tmx": {
-            "scale": 0.53,
-            "selectedLayer": 2,
+            "scale": 0.3979,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 2159.433962264151,
-                "y": 708.4905660377358
+                "x": 2817.2907765770296,
+                "y": 614.4759989947223
             }
         },
         "level-1.tmx#background_tilemap_packed": {
@@ -69,7 +69,7 @@
             "scale": 0.1398611111111111,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 3374.7765640516386,
+                "x": 3367.6266137040716,
                 "y": 1598.0139026812315
             }
         },
