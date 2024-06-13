@@ -18,7 +18,10 @@ class LevelTwo extends Phaser.Scene {
         this.SCALE = 2.0;
 
         // amnt of coins 
-        this.coinsAmount = 0;
+        this.coinsAmount = this.scene.get("levelOneScene").coinsAmount;
+
+        // double jump
+        this.doubleJump = false;
     }
 
     create() {
@@ -65,7 +68,7 @@ class LevelTwo extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(1900, 700, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(30, 700, "platformer_characters", "tile_0006.png");
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
@@ -165,7 +168,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform1.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
@@ -182,7 +185,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform2.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
                 { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
@@ -199,7 +202,6 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform3.body.velocity,
             loop: -1,
-            // yoyo: true,
             tweens: [
                 { x: 50, y: 50, duration: 4000, ease: 'Stepped' },
                 { x: -50, y: -50, duration: 4000, ease: 'Stepped' },
@@ -216,7 +218,6 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform4.body.velocity,
             loop: -1,
-            // yoyo: true,
             tweens: [
                 { x: 50, y: 50, duration: 4000, ease: 'Stepped' },
                 { x: -50, y: -50, duration: 4000, ease: 'Stepped' },
@@ -233,7 +234,6 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform5.body.velocity,
             loop: -1,
-            // yoyo: true,
             tweens: [
                 { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
@@ -250,7 +250,6 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform6.body.velocity,
             loop: -1,
-            // yoyo: true,
             tweens: [
                 { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
                 { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
@@ -267,7 +266,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform7.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
@@ -284,7 +283,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform8.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
                 { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
@@ -301,7 +300,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform9.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 0, y: 100, duration: 6000, ease: 'Stepped' },
                 { x: 0, y: -100, duration: 6000, ease: 'Stepped' },
@@ -318,7 +317,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform10.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 0, y: 100, duration: 6000, ease: 'Stepped' },
                 { x: 0, y: -100, duration: 6000, ease: 'Stepped' },
@@ -335,7 +334,7 @@ class LevelTwo extends Phaser.Scene {
         this.tweens.chain({
             targets: this.platform11.body.velocity,
             loop: -1,
-            // yoyo: true,
+
             tweens: [
                 { x: 0, y: 100, duration: 12000, ease: 'Stepped' },
                 { x: 0, y: -100, duration: 12000, ease: 'Stepped' },
@@ -412,18 +411,17 @@ class LevelTwo extends Phaser.Scene {
         // credit to 
         // https://www.html5gamedevs.com/topic/44980-double-jump-phaser-3/
         // for thinking behind double jump implementation
-        this.doubleJump = false;
         if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
-            if (my.sprite.player.body.blocked.down && !this.doubleJump) {
-                    this.doubleJump = true;
-                    my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
-                    this.playerJumpSound.play();
-                } else {
-                    this.doubleJump = false;
-                    my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
-                    this.playerJumpSound.play();
-                }
+            if (my.sprite.player.body.onFloor()) {
+                this.doubleJump = true;
+                my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                this.playerJumpSound.play();
+            } else if (this.doubleJump) {
+                this.doubleJump = false;
+                my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                this.playerJumpSound.play();
             }
+        }
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
