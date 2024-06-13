@@ -31,14 +31,14 @@ class LevelTwo extends Phaser.Scene {
 
         // load tilesets
         this.background_tileset = this.background_map.addTilesetImage("background_tilemap", "background_tilemap_tiles");
-        this.base_tileset = this.map.addTilesetImage("base_tilemap_packed", "base_tilemap_tiles");
-        this.farm_tileset = this.map.addTilesetImage("food_tilemap_packed", "food_tilemap_tiles");
+        this.base_tileset = this.map.addTilesetImage("base_tilemap", "base_tilemap_tiles");
+        this.food_tileset = this.map.addTilesetImage("food_tilemap", "food_tilemap_tiles");
 
         // load layers
-        // TODO: fix
         this.backgroundLayer = this.background_map.createLayer("Background", this.background_tileset, 0, 0);
         this.groundLayer = this.map.createLayer("Ground", this.food_tileset, 0, 0);
         this.airLayer = this.map.createLayer("Air-Platforms", this.food_tileset, 0, 0);
+        this.extrasLayer = this.map.createLayer("Extras", this.food_tileset, 0, 0);
 
         // set properties for background
         this.backgroundLayer.setScale(4);
@@ -55,6 +55,9 @@ class LevelTwo extends Phaser.Scene {
             if (tile.properties["oneWay"]) {
                 tile.setCollision(false, false, true, false);
             }
+            else if (tile.properties["collides"]) {
+                tile.setCollision(true, true, true, true);
+            }
         });
 
         // start animate plugin
@@ -62,12 +65,13 @@ class LevelTwo extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(30, 750, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(1600, 500, "platformer_characters", "tile_0006.png");
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
         // enable collision handling
         this.groundCollider = this.physics.add.collider(my.sprite.player, this.groundLayer);
+        this.airCollider = this.physics.add.collider(my.sprite.player, this.airLayer);
 
         // set up Phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();
@@ -151,10 +155,36 @@ class LevelTwo extends Phaser.Scene {
         // start HUD
         this.scene.launch("hudScene", "levelTwoScene");
 
-        // create moving platforms
-        this.platforms = this.physics.add.group({ allowGravity: false });
+        // moving platforms 2 electric boogaloo
+        // this.platform1 = new Phaser.Physics.Matter.Image.MovingPlatform(this, 1700, 540, 'platform', {
+        //     isStatic: true
+        // })
+        // create paths
+        this.platform1Path = new Phaser.Curves.Line({ x: 1700, y: 30 * 18 }, { x: 118 * 18, y: 30 * 18 });
 
-        this.
+        // create moving platforms
+        this.platform1 = this.add.follower(this.platform1Path, 1700, 550, "cloud");
+        this.platform1.startFollow({
+            from: 0,
+            to: 1,
+            delay: 0,
+            duration: 6000,
+            // ease: 'Sine.easeInOut',
+            repeat: -1,
+            yoyo: true,
+        });
+
+        // make platforms collidable
+        // this.platform1.body.allowGravity = false;
+        // this.platform1.body.immovable = true;
+        // this.platform1.body.friction.x = 1;
+        // this.platform1.body.friction.y = 1;
+
+        // this.platform1.collides = true;
+        console.log(this.platform1);
+        this.physics.world.enable(this.platform1);
+        this.platform1.body.setAllowGravity(false);
+        this.physics.add.collider(my.sprite.player, this.platform1);
     }
 
     update() {
@@ -248,6 +278,24 @@ class LevelTwo extends Phaser.Scene {
             this.levelOneMusic.stop();
         }
     }
+
+    // credit to
+    moveVertically() {
+	this.scene.tweens.addCounter({
+		from: 0,
+		to: -300,
+		duration: 1500,
+		ease: Phaser.Math.Easing.Sine.InOut,
+		repeat: -1,
+		yoyo: true,
+		onUpdate: (tween, target) => {
+			const x = startX + target.value
+			const dx = x - this.x
+			this.x = x
+			this.setVelocityX(dx)
+		}
+	})
+}
 
     // credit to this Phaser forum post for these functions: 
     // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4

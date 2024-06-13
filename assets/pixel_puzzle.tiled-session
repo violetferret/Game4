@@ -25,11 +25,11 @@
             "scaleInDock": 1
         },
         "level-1-background.tmx": {
-            "scale": 0.441,
+            "scale": 0.3322,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1034.0136054421769,
-                "y": -64.62585034013603
+                "x": 797.7122215532811,
+                "y": 206.20108368452736
             }
         },
         "level-1-background.tmx#background_tilemap": {
@@ -66,11 +66,11 @@
             "scaleInDock": 1
         },
         "level-2-background.tmx": {
-            "scale": 0.2004,
+            "scale": 0.3334,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 603.7924151696608,
-                "y": 621.2574850299402
+                "x": 997.3005398920217,
+                "y": 316.43671265746855
             }
         },
         "level-2-background.tmx#background_tilemap": {
@@ -95,11 +95,11 @@
             "scaleInDock": 1
         },
         "level-2.tmx": {
-            "scale": 0.2238,
-            "selectedLayer": 1,
+            "scale": 0.6712,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 1344.9508489722966,
-                "y": 726.09472743521
+                "x": 2316.001191895113,
+                "y": 695.0238379022646
             }
         },
         "level-2.tmx#background_tilemap": {
@@ -109,7 +109,8 @@
             "scaleInDock": 2.1021
         },
         "level-2.tmx#food_tilemap": {
-            "scaleInDock": 1.7961
+            "scaleInDock": 1.9635,
+            "scaleInEditor": 1
         },
         "level-3-background.tmj": {
             "scale": 0.3463,
@@ -123,28 +124,30 @@
             "scaleInDock": 1
         },
         "level-3-background.tmx": {
-            "scale": 1.3615,
+            "scale": 0.9162,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 1538.7440323172973,
-                "y": 994.1241278002204
+                "x": 558.2842174197774,
+                "y": 111.87513643309325
             }
         },
         "level-3-background.tmx#background_tilemap": {
             "scaleInDock": 1
         },
         "level-3.tmx": {
-            "scale": 0.5275,
-            "selectedLayer": 0,
+            "scale": 0.1297,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 216.11374407582935,
-                "y": 404.739336492891
+                "x": 1831.1488049344641,
+                "y": 782.5751734772552
             }
         },
         "level-3.tmx#base_tilemap": {
-            "scaleInDock": 1
+            "scaleInDock": 1.3607,
+            "scaleInEditor": 1
         }
     },
+    "frame.defaultDuration": 500,
     "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets",
     "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets/tilemaps",
     "map.height": 80,
@@ -159,13 +162,13 @@
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "level-3-background.tmx",
+        "level-1-background.tmx",
+        "level-2-background.tmx",
         "level-2-background.tmj",
         "level-2.tmx",
         "level-2.tmj",
         "level-1.tmx",
-        "level-3-background.tmx",
-        "level-1-background.tmx",
-        "level-2-background.tmx",
         "level-1-background.tmj",
         "level-3-background.tmj",
         "level-3.tmx"
