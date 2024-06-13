@@ -155,36 +155,120 @@ class LevelTwo extends Phaser.Scene {
         // start HUD
         this.scene.launch("hudScene", "levelTwoScene");
 
-        // moving platforms 2 electric boogaloo
-        // this.platform1 = new Phaser.Physics.Matter.Image.MovingPlatform(this, 1700, 540, 'platform', {
-        //     isStatic: true
-        // })
-        // create paths
-        this.platform1Path = new Phaser.Curves.Line({ x: 1700, y: 30 * 18 }, { x: 118 * 18, y: 30 * 18 });
+        // moving platforms
 
-        // create moving platforms
-        this.platform1 = this.add.follower(this.platform1Path, 1700, 550, "cloud");
-        this.platform1.startFollow({
-            from: 0,
-            to: 1,
-            delay: 0,
-            duration: 6000,
-            // ease: 'Sine.easeInOut',
-            repeat: -1,
-            yoyo: true,
-        });
-
-        // make platforms collidable
-        // this.platform1.body.allowGravity = false;
-        // this.platform1.body.immovable = true;
-        // this.platform1.body.friction.x = 1;
-        // this.platform1.body.friction.y = 1;
-
-        // this.platform1.collides = true;
-        console.log(this.platform1);
-        this.physics.world.enable(this.platform1);
+        // platform 1
+        this.platform1 = this.physics.add.image(1700, 550, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
         this.platform1.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform1.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
+                { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
+            ]
+        });
         this.physics.add.collider(my.sprite.player, this.platform1);
+
+        // platform 2
+        this.platform2 = this.physics.add.image(1700, 630, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform2.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform2.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
+                { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform2);
+
+        // platform 3
+        this.platform3 = this.physics.add.image(1700, 800, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform3.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform3.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 50, duration: 2500, ease: 'Stepped' },
+                { x: -50, y: -50, duration: 2500, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform3);
+
+        // platform 4
+        this.platform4 = this.physics.add.image(1950, 800, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform4.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform4.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 50, duration: 2500, ease: 'Stepped' },
+                { x: -50, y: -50, duration: 2500, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform4);
+
+        // platform 5
+        this.platform5 = this.physics.add.image(1700, 1000, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform5.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform5.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
+                { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform5);
+
+        // platform 6
+        this.platform6 = this.physics.add.image(1700, 1100, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform6.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform6.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
+                { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform6);
+
+        // platform 7
+        this.platform7 = this.physics.add.image(1700, 1200, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform7.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform7.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 100, y: 0, duration: 4000, ease: 'Stepped' },
+                { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
+            ]
+        });
+        this.physics.add.collider(my.sprite.player, this.platform7);
+
     }
 
     update() {
@@ -281,21 +365,21 @@ class LevelTwo extends Phaser.Scene {
 
     // credit to
     moveVertically() {
-	this.scene.tweens.addCounter({
-		from: 0,
-		to: -300,
-		duration: 1500,
-		ease: Phaser.Math.Easing.Sine.InOut,
-		repeat: -1,
-		yoyo: true,
-		onUpdate: (tween, target) => {
-			const x = startX + target.value
-			const dx = x - this.x
-			this.x = x
-			this.setVelocityX(dx)
-		}
-	})
-}
+        this.scene.tweens.addCounter({
+            from: 0,
+            to: -300,
+            duration: 1500,
+            ease: Phaser.Math.Easing.Sine.InOut,
+            repeat: -1,
+            yoyo: true,
+            onUpdate: (tween, target) => {
+                const x = startX + target.value
+                const dx = x - this.x
+                this.x = x
+                this.setVelocityX(dx)
+            }
+        })
+    }
 
     // credit to this Phaser forum post for these functions: 
     // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
