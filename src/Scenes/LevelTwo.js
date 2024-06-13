@@ -65,7 +65,7 @@ class LevelTwo extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(3300, 500, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(1900, 700, "platformer_characters", "tile_0006.png");
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
@@ -346,7 +346,7 @@ class LevelTwo extends Phaser.Scene {
     }
 
     update() {
-        console.log(my.sprite.player.x, my.sprite.player.y);
+        // console.log(my.sprite.player.x, my.sprite.player.y);
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
@@ -424,20 +424,6 @@ class LevelTwo extends Phaser.Scene {
                     this.playerJumpSound.play();
                 }
             }
-        
-        // credit to this Phaser forum post for this funcitonality: 
-        // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
-        if (Phaser.Input.Keyboard.JustDown(cursors.down) /* && my.sprite.player.body.checkCollision.down */) {
-
-            //this.drop(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider);
-        } // else {
-        // this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider);
-        // this.time.delayedCall(5000, this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider), null, this);
-        // }
-
-        if ((Phaser.Input.Keyboard.JustUp(cursors.down))) {
-            //this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider)
-        }
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
@@ -445,43 +431,8 @@ class LevelTwo extends Phaser.Scene {
 
         // go to next scene
         if (my.sprite.player.x >= 4300) {
-            this.scene.start("levelTwoScene");
-            this.levelOneMusic.stop();
+            this.scene.start("levelThreeScene");
+            this.levelTwoMusic.stop();
         }
     }
-
-    // credit to
-    moveVertically() {
-        this.scene.tweens.addCounter({
-            from: 0,
-            to: -300,
-            duration: 1500,
-            ease: Phaser.Math.Easing.Sine.InOut,
-            repeat: -1,
-            yoyo: true,
-            onUpdate: (tween, target) => {
-                const x = startX + target.value
-                const dx = x - this.x
-                this.x = x
-                this.setVelocityX(dx)
-            }
-        })
-    }
-
-    // credit to this Phaser forum post for these functions: 
-    // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
-    // TODO: FIX???
-    // drop(treeLeavesCollider, treeTrunksCollider, plantsCollider) {
-    //     my.sprite.player.setVelocityY(150);
-    //     treeLeavesCollider.active = false;
-    //     treeTrunksCollider.active = false;
-    //     plantsCollider.active = false;
-    // }
-
-    // dropExpire(treeLeavesCollider, treeTrunksCollider, plantsCollider) {
-    //     // my.sprite.player.body.checkCollision.down = true;
-    //     treeLeavesCollider.active = true;
-    //     treeTrunksCollider.active = true;
-    //     plantsCollider.active = true;
-    // }
 }
