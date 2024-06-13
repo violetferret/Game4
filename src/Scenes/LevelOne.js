@@ -286,11 +286,18 @@ class LevelOne extends Phaser.Scene {
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
+            this.levelOneMusic.stop();
         }
 
         // go to next scene
         if (my.sprite.player.x >= 4300) {
             this.scene.start("levelTwoScene");
+            this.levelOneMusic.stop();
+        }
+
+        // for falling into the void
+        if (my.sprite.player.y >= 1420) {
+            this.scene.restart();
             this.levelOneMusic.stop();
         }
     }

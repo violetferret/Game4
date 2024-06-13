@@ -6,13 +6,13 @@ class HUD extends Phaser.Scene {
     preload() {
         this.textConfig = {
             fontFamily: 'kenney-mini',
-            fontSize: 70,
+            fontSize: 50,
             color: "white",
         }  
     }
 
     create(levelScene) {
-        this.text = this.add.text(20, 820, 'Score: 0', this.textConfig);
+        this.text = this.add.text(20, 835, 'Score: 0', this.textConfig);
         this.levelScene = this.scene.get(levelScene);
         this.text.visible = true;
     }

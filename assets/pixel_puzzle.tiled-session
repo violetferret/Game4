@@ -95,11 +95,11 @@
             "scaleInDock": 1
         },
         "level-2.tmx": {
-            "scale": 0.2664,
-            "selectedLayer": 2,
+            "scale": 0.7417,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 2642.6426426426424,
-                "y": 970.3453453453452
+                "x": 1096.13051098827,
+                "y": 676.1493865444249
             }
         },
         "level-2.tmx#background_tilemap": {
@@ -162,11 +162,11 @@
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
+        "level-2.tmx",
         "level-3-background.tmx",
         "level-1-background.tmx",
         "level-2-background.tmx",
         "level-2-background.tmj",
-        "level-2.tmx",
         "level-2.tmj",
         "level-1.tmx",
         "level-1-background.tmj",

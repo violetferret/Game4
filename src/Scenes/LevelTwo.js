@@ -410,7 +410,7 @@ class LevelTwo extends Phaser.Scene {
         }
         // credit to 
         // https://www.html5gamedevs.com/topic/44980-double-jump-phaser-3/
-        // for thinking behind double jump implementation
+        // for logic behind double jump implementation
         if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
             if (my.sprite.player.body.onFloor()) {
                 this.doubleJump = true;
@@ -425,11 +425,18 @@ class LevelTwo extends Phaser.Scene {
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
+            this.levelTwoMusic.stop();
         }
 
         // go to next scene
         if (my.sprite.player.x >= 4300) {
             this.scene.start("levelThreeScene");
+            this.levelTwoMusic.stop();
+        }
+
+         // for falling into the void
+         if (my.sprite.player.y >= 1420) {
+            this.scene.restart();
             this.levelTwoMusic.stop();
         }
     }
