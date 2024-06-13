@@ -171,6 +171,7 @@ class LevelTwo extends Phaser.Scene {
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
             ]
         });
+        this.platform1.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform1);
 
         // platform 2
@@ -187,10 +188,11 @@ class LevelTwo extends Phaser.Scene {
                 { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
             ]
         });
+        this.platform2.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform2);
 
         // platform 3
-        this.platform3 = this.physics.add.image(1700, 800, 'cloud')
+        this.platform3 = this.physics.add.image(1650, 760, 'cloud')
             .setImmovable(true)
             .setVelocity(0, 0);
         this.platform3.body.setAllowGravity(false);
@@ -199,14 +201,15 @@ class LevelTwo extends Phaser.Scene {
             loop: -1,
             // yoyo: true,
             tweens: [
-                { x: 50, y: 50, duration: 2500, ease: 'Stepped' },
-                { x: -50, y: -50, duration: 2500, ease: 'Stepped' },
+                { x: 50, y: 50, duration: 4000, ease: 'Stepped' },
+                { x: -50, y: -50, duration: 4000, ease: 'Stepped' },
             ]
         });
+        this.platform3.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform3);
 
         // platform 4
-        this.platform4 = this.physics.add.image(1950, 800, 'cloud')
+        this.platform4 = this.physics.add.image(1900, 760, 'cloud')
             .setImmovable(true)
             .setVelocity(0, 0);
         this.platform4.body.setAllowGravity(false);
@@ -215,14 +218,15 @@ class LevelTwo extends Phaser.Scene {
             loop: -1,
             // yoyo: true,
             tweens: [
-                { x: 50, y: 50, duration: 2500, ease: 'Stepped' },
-                { x: -50, y: -50, duration: 2500, ease: 'Stepped' },
+                { x: 50, y: 50, duration: 4000, ease: 'Stepped' },
+                { x: -50, y: -50, duration: 4000, ease: 'Stepped' },
             ]
         });
+        this.platform4.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform4);
 
         // platform 5
-        this.platform5 = this.physics.add.image(1700, 1000, 'cloud')
+        this.platform5 = this.physics.add.image(1700, 1020, 'cloud')
             .setImmovable(true)
             .setVelocity(0, 0);
         this.platform5.body.setAllowGravity(false);
@@ -235,6 +239,7 @@ class LevelTwo extends Phaser.Scene {
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
             ]
         });
+        this.platform5.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform5);
 
         // platform 6
@@ -251,10 +256,11 @@ class LevelTwo extends Phaser.Scene {
                 { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
             ]
         });
+        this.platform6.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform6);
 
         // platform 7
-        this.platform7 = this.physics.add.image(1700, 1200, 'cloud')
+        this.platform7 = this.physics.add.image(1700, 1180, 'cloud')
             .setImmovable(true)
             .setVelocity(0, 0);
         this.platform7.body.setAllowGravity(false);
@@ -267,8 +273,76 @@ class LevelTwo extends Phaser.Scene {
                 { x: -100, y: 0, duration: 4000, ease: 'Stepped' },
             ]
         });
+        this.platform7.body.checkCollision.down = false;
         this.physics.add.collider(my.sprite.player, this.platform7);
 
+        // platform 8
+        this.platform8 = this.physics.add.image(1700, 1340, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform8.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform8.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
+                { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
+            ]
+        });
+        this.platform8.body.checkCollision.down = false;
+        this.physics.add.collider(my.sprite.player, this.platform8);
+
+        // platform 9
+        this.platform9 = this.physics.add.image(2790, 600, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform9.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform9.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 0, y: 100, duration: 6000, ease: 'Stepped' },
+                { x: 0, y: -100, duration: 6000, ease: 'Stepped' },
+            ]
+        });
+        this.platform9.body.checkCollision.down = false;
+        this.physics.add.collider(my.sprite.player, this.platform9);
+
+        // platform 10
+        this.platform10 = this.physics.add.image(3150, 600, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform10.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform10.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 0, y: 100, duration: 6000, ease: 'Stepped' },
+                { x: 0, y: -100, duration: 6000, ease: 'Stepped' },
+            ]
+        });
+        this.platform10.body.checkCollision.down = false;
+        this.physics.add.collider(my.sprite.player, this.platform10);
+
+        // platform 11
+        this.platform11 = this.physics.add.image(1700, 1340, 'cloud')
+            .setImmovable(true)
+            .setVelocity(0, 0);
+        this.platform11.body.setAllowGravity(false);
+        this.tweens.chain({
+            targets: this.platform11.body.velocity,
+            loop: -1,
+            // yoyo: true,
+            tweens: [
+                { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
+                { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
+            ]
+        });
+        this.platform11.body.checkCollision.down = false;
+        this.physics.add.collider(my.sprite.player, this.platform11);
     }
 
     update() {

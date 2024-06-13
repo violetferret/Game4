@@ -95,11 +95,11 @@
             "scaleInDock": 1
         },
         "level-2.tmx": {
-            "scale": 0.6712,
+            "scale": 0.2664,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 2316.001191895113,
-                "y": 695.0238379022646
+                "x": 2642.6426426426424,
+                "y": 970.3453453453452
             }
         },
         "level-2.tmx#background_tilemap": {
@@ -135,11 +135,11 @@
             "scaleInDock": 1
         },
         "level-3.tmx": {
-            "scale": 0.1297,
-            "selectedLayer": 4,
+            "scale": 0.8722,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1831.1488049344641,
-                "y": 782.5751734772552
+                "x": 676.4503554230681,
+                "y": 333.06581059390055
             }
         },
         "level-3.tmx#base_tilemap": {
