@@ -135,11 +135,11 @@
             "scaleInDock": 1
         },
         "level-3.tmx": {
-            "scale": 0.8722,
+            "scale": 0.9687,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 676.4503554230681,
-                "y": 333.06581059390055
+                "x": 4210.7979766697645,
+                "y": 585.836688345205
             }
         },
         "level-3.tmx#base_tilemap": {

@@ -65,7 +65,7 @@ class LevelTwo extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(1600, 500, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(3300, 500, "platformer_characters", "tile_0006.png");
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
@@ -328,7 +328,7 @@ class LevelTwo extends Phaser.Scene {
         this.physics.add.collider(my.sprite.player, this.platform10);
 
         // platform 11
-        this.platform11 = this.physics.add.image(1700, 1340, 'cloud')
+        this.platform11 = this.physics.add.image(3500, 100, 'cloud')
             .setImmovable(true)
             .setVelocity(0, 0);
         this.platform11.body.setAllowGravity(false);
@@ -337,8 +337,8 @@ class LevelTwo extends Phaser.Scene {
             loop: -1,
             // yoyo: true,
             tweens: [
-                { x: 50, y: 0, duration: 8000, ease: 'Stepped' },
-                { x: -50, y: 0, duration: 8000, ease: 'Stepped' },
+                { x: 0, y: 100, duration: 12000, ease: 'Stepped' },
+                { x: 0, y: -100, duration: 12000, ease: 'Stepped' },
             ]
         });
         this.platform11.body.checkCollision.down = false;
@@ -346,6 +346,7 @@ class LevelTwo extends Phaser.Scene {
     }
 
     update() {
+        console.log(my.sprite.player.x, my.sprite.player.y);
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
@@ -408,10 +409,22 @@ class LevelTwo extends Phaser.Scene {
         if (!my.sprite.player.body.blocked.down) {
             my.sprite.player.anims.play('jump');
         }
-        if (my.sprite.player.body.blocked.down && Phaser.Input.Keyboard.JustDown(cursors.up)) {
-            my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
-            this.playerJumpSound.play();
-        }
+        // credit to 
+        // https://www.html5gamedevs.com/topic/44980-double-jump-phaser-3/
+        // for thinking behind double jump implementation
+        this.doubleJump = false;
+        if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
+            if (my.sprite.player.body.blocked.down && !this.doubleJump) {
+                    this.doubleJump = true;
+                    my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                    this.playerJumpSound.play();
+                } else {
+                    this.doubleJump = false;
+                    my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                    this.playerJumpSound.play();
+                }
+            }
+        
         // credit to this Phaser forum post for this funcitonality: 
         // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
         if (Phaser.Input.Keyboard.JustDown(cursors.down) /* && my.sprite.player.body.checkCollision.down */) {
