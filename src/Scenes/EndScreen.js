@@ -70,7 +70,7 @@ class EndScreen extends Phaser.Scene {
         this.level3Layer = this.map.createLayer("Level3", this.base_tileset, 0, 0);
         this.level31Layer = this.map.createLayer("Level3-1", this.base_tileset, 0, 0);
 
-        this.add.text(625, 90, "(Pint-Sized)", this.textConfig).setFontSize(30);
-        this.add.text(550, 120, "Pixel Puzzle!", this.textConfig);
+        this.add.text(625, 90, "Congrats!", this.textConfig);
+        this.add.text(550, 120, "Your score is: " + this.scene.get("levelThreeScene").coinsAmount, this.textConfig).setFontSize(30);
     }
 }

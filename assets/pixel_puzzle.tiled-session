@@ -137,6 +137,17 @@
         "level-3-background.tmx#background_tilemap": {
             "scaleInDock": 1
         },
+        "level-3.tmj": {
+            "scale": 0.13,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 2165.3846153846152,
+                "y": 726.9230769230767
+            }
+        },
+        "level-3.tmj#base_tilemap": {
+            "scaleInDock": 1
+        },
         "level-3.tmx": {
             "scale": 0.2507,
             "selectedLayer": 7,
@@ -150,11 +161,11 @@
             "scaleInEditor": 1
         },
         "start-end-background.tmx": {
-            "scale": 0.3401,
+            "scale": 0.3849,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 877.6830344016466,
-                "y": 227.87415466039397
+                "x": 715.7703299558326,
+                "y": 245.51831644583012
             }
         },
         "start-end-background.tmx#background_tilemap_packed": {
@@ -194,6 +205,8 @@
     "property.type": "bool",
     "recentFiles": [
         "start-end.tmx",
+        "start-end-background.tmx",
+        "level-3.tmj",
         "level-3-background.tmx",
         "level-3.tmx",
         "level-2.tmx",
@@ -202,8 +215,7 @@
         "level-2-background.tmj",
         "level-2.tmj",
         "level-1.tmx",
-        "level-1-background.tmj",
-        "level-3-background.tmj"
+        "level-1-background.tmj"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

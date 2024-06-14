@@ -19,6 +19,9 @@ class LevelThree extends Phaser.Scene {
 
         // amnt of coins 
         this.coinsAmount = this.scene.get("levelTwoScene").coinsAmount;
+
+        // swimming
+        this.swim = false;
     }
 
     create() {
@@ -30,7 +33,7 @@ class LevelThree extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, 245 * 18, 85 * 18);
 
         // load tilesets
-        this.background_tileset = this.background_map.addTilesetImage("background_tilema", "background_tilemap_tiles");
+        this.background_tileset = this.background_map.addTilesetImage("background_tilemap", "background_tilemap_tiles");
         this.base_tileset = this.map.addTilesetImage("base_tilemap", "base_tilemap_tiles");
 
         // load layers
@@ -60,12 +63,16 @@ class LevelThree extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(30, 750, "platformer_characters", this.scene.get("startScreenScene").avatar);
+        my.sprite.player = this.physics.add.sprite(30, 200, "platformer_characters", this.scene.get("startScreenScene").avatar);
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
         // create water layer to overlay over player
         this.waterLayer = this.map.createLayer("Water", this.base_tileset, 0, 0);
+
+        // enable collision handling
+        this.physics.add.collider(my.sprite.player, this.groundLayer);
+        this.physics.add.collider(my.sprite.player, this.pipesLayer);
 
         // set up Phaser-provided cursor key input
         cursors = this.input.keyboard.createCursorKeys();
@@ -120,10 +127,10 @@ class LevelThree extends Phaser.Scene {
         this.playerJumpSound.volume = .25;
 
         // play music
-        this.levelOneMusic = this.sound.add("levelOneMusic");
-        this.levelOneMusic.loop = true;
-        this.levelOneMusic.volume = 0.25;
-        this.levelOneMusic.play();
+        this.levelThreeMusic = this.sound.add("levelThreeMusic");
+        this.levelThreeMusic.loop = true;
+        this.levelThreeMusic.volume = 0.25;
+        this.levelThreeMusic.play();
 
         // create coins
         this.coins = this.map.createFromObjects("Coins", {
@@ -148,10 +155,35 @@ class LevelThree extends Phaser.Scene {
     }
 
     update() {
-        // console.log(my.sprite.player.x, my.sprite.player.y)
+        // handle swimming
+
+        let tile = this.waterLayer.getTileAtWorldXY(my.sprite.player.x, my.sprite.player.y);
+        if (tile != null && tile.index == 74) {
+            this.swim = true;
+        } else if (tile != null && tile.index == 54){
+            this.JUMP_VELOCITY = -1000000000;
+            this.physics.world.gravity.y = 0;
+        } else {
+            this.swim = false;
+        }
+
+        if (this.swim) {
+            // my.sprite.player.setAngle(90);
+            // my.sprite.player.setAngle(0);
+            this.physics.world.gravity.y = 150;
+            this.JUMP_VELOCITY = -200;
+        } else {
+            my.sprite.player.setAngle(0);
+            this.physics.world.gravity.y = 1300;
+            this.JUMP_VELOCITY = -500;
+        }
+
         if (cursors.left.isDown) {
             my.sprite.player.setAccelerationX(-this.ACCELERATION);
             my.sprite.player.resetFlip();
+            if (this.swim) {
+                my.sprite.player.setAngle(270);
+            }
             my.sprite.player.anims.play('walk', true);
             my.vfx.walking.startFollow(my.sprite.player, my.sprite.player.displayWidth / 2 - 10, my.sprite.player.displayHeight / 2 - 5, false);
 
@@ -171,6 +203,9 @@ class LevelThree extends Phaser.Scene {
         } else if (cursors.right.isDown) {
             my.sprite.player.setAccelerationX(this.ACCELERATION);
             my.sprite.player.setFlip(true, false);
+            if (this.swim) {
+                my.sprite.player.setAngle(90);
+            }
             my.sprite.player.anims.play('walk', true);
 
             // TODO: add particle following code here
@@ -212,39 +247,37 @@ class LevelThree extends Phaser.Scene {
         if (!my.sprite.player.body.blocked.down) {
             my.sprite.player.anims.play('jump');
         }
-        if (my.sprite.player.body.blocked.down && Phaser.Input.Keyboard.JustDown(cursors.up)) {
-            my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
-            this.playerJumpSound.play();
-        }
-        // credit to this Phaser forum post for this funcitonality: 
-        // https://phaser.discourse.group/t/one-way-and-pass-thru-platforms-in-phaser-3/11641/4
-        if (Phaser.Input.Keyboard.JustDown(cursors.down) /* && my.sprite.player.body.checkCollision.down */) {
 
-            this.drop(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider);
-        } // else {
-        // this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider);
-        // this.time.delayedCall(5000, this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider), null, this);
-        // }
-
-        if ((Phaser.Input.Keyboard.JustUp(cursors.down))) {
-            this.dropExpire(this.treeLeavesCollider, this.treeTrunksCollider, this.plantsCollider)
+        if (Phaser.Input.Keyboard.JustDown(cursors.up)) {
+            if (my.sprite.player.body.onFloor() && !this.swim) {
+                my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                this.playerJumpSound.play();
+            } else if (this.swim) {
+                my.sprite.player.setAngle(0);
+                my.sprite.player.body.setVelocityY(this.JUMP_VELOCITY);
+                // this.playerJumpSound.play();
+            }
         }
+        if (Phaser.Input.Keyboard.JustDown(cursors.down)&& this.swim) {
+                my.sprite.player.setAngle(180);
+            }
+        
 
         if (Phaser.Input.Keyboard.JustDown(this.rKey)) {
             this.scene.restart();
-            this.levelOneMusic.stop();
+            this.levelThreeMusic.stop();
         }
 
         // go to next scene
         if (my.sprite.player.x >= 4300) {
-            this.scene.start("levelTwoScene");
-            this.levelOneMusic.stop();
+            this.scene.start("endScreenScene");
+            this.levelThreeMusic.stop();
         }
 
         // for falling into the void
         if (my.sprite.player.y >= 1420) {
             this.scene.restart();
-            this.levelOneMusic.stop();
+            this.levelThreeMusic.stop();
         }
     }
 }
