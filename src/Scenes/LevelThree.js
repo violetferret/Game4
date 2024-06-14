@@ -30,8 +30,8 @@ class LevelThree extends Phaser.Scene {
         this.physics.world.setBounds(0, 0, 245 * 18, 85 * 18);
 
         // load tilesets
-        this.background_tileset = this.background_map.addTilesetImage("background_tilemap", "background_tilemap_tiles");
-        this.base_tileset = this.map.addTilesetImage("base_tilemap_packed", "base_tilemap_tiles");
+        this.background_tileset = this.background_map.addTilesetImage("background_tilema", "background_tilemap_tiles");
+        this.base_tileset = this.map.addTilesetImage("base_tilemap", "base_tilemap_tiles");
 
         // load layers
         this.backgroundLayer = this.background_map.createLayer("Background", this.background_tileset, 0, 0);

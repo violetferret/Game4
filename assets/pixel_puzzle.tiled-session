@@ -161,11 +161,11 @@
             "scaleInDock": 1
         },
         "start-end.tmx": {
-            "scale": 0.3586,
+            "scale": 0.6351,
             "selectedLayer": 4,
             "viewCenter": {
-                "x": 737.590630228667,
-                "y": 400.1673173452316
+                "x": 876.2399622106755,
+                "y": 281.0581010864431
             }
         },
         "start-end.tmx#base_tilemap": {

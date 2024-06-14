@@ -4,6 +4,13 @@ class StartScreen extends Phaser.Scene {
     }
 
     preload() {
+        // create font config
+        this.textConfig = {
+            fontFamily: 'kenney-mini',
+            fontSize: 50,
+            color: "white",
+        } 
+
         // load tilemaps
         this.load.image("background_tilemap_tiles", "assets/tilemaps/background_tilemap_packed.png");
         this.load.image("base_tilemap_tiles", "assets/tilemaps/base_tilemap_packed.png");
@@ -11,7 +18,8 @@ class StartScreen extends Phaser.Scene {
         this.load.image("food_tilemap_tiles", "assets/tilemaps/food_tilemap_packed.png");
 
         // load levels
-        this.load.tilemapTiledJSON("start-end", "assets/start.tmj");
+        this.load.tilemapTiledJSON("start-end", "assets/start-end.tmj");
+        this.load.tilemapTiledJSON("start-end-background", "assets/start-end-background.tmj");
 
         // load tilemaps as spritesheets
         this.load.spritesheet("background_tilemap_sheet", "assets/tilemaps/background_tilemap_packed.png", {
@@ -33,18 +41,25 @@ class StartScreen extends Phaser.Scene {
             frameWidth: 18,
             frameHeight: 18
         });
+
+        // load UI stuff
+        this.load.image("up", "assets/up.png");
+        this.load.image("down", "assets/down.png");
+        this.load.image("left", "assets/left.png");
+        this.load.image("right", "assets/right.png");
+        this.load.image("button", "assets/button.png");
     }
 
     create() {
 
         // create new tilemap game object
         this.background_map = this.make.tilemap({ key: "start-end-background" });
-        this.map = this.make.tilemap({ key: "start-end-1" });
+        this.map = this.make.tilemap({ key: "start-end" });
 
         // load tilesets
-        this.background_tileset = this.background_map.addTilesetImage("background_tilemap", "background_tilemap_tiles");
-        this.base_tileset = this.map.addTilesetImage("base_tilemap_packed", "base_tilemap_tiles");
-        this.farm_tileset = this.map.addTilesetImage("farm_tilemap_packed", "farm_tilemap_tiles");
+        this.background_tileset = this.background_map.addTilesetImage("background_tilemap_packed", "background_tilemap_tiles");
+        this.base_tileset = this.map.addTilesetImage("base_tilemap", "base_tilemap_tiles");
+        this.farm_tileset = this.map.addTilesetImage("farm_tilemap", "farm_tilemap_tiles");
         this.food_tileset = this.map.addTilesetImage("food_tilemap", "food_tilemap_tiles");
 
         this.backgroundLayer = this.background_map.createLayer("Background", this.background_tileset, 0, 0);
@@ -55,10 +70,9 @@ class StartScreen extends Phaser.Scene {
         this.level3Layer = this.map.createLayer("Level3", this.base_tileset, 0, 0);
         this.level31Layer = this.map.createLayer("Level3-1", this.base_tileset, 0, 0);
 
-        
-
+        this.add.text()
         // start game
-        this.scene.start("loadScene");
+        //this.scene.start("loadScene");
     }
 
     update() {
