@@ -68,7 +68,7 @@ class LevelTwo extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(30, 700, "platformer_characters", "tile_0006.png");
+        my.sprite.player = this.physics.add.sprite(30, 700, "platformer_characters", this.scene.get("startScreenScene").avatar);
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 

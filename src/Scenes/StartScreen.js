@@ -11,6 +11,13 @@ class StartScreen extends Phaser.Scene {
             color: "white",
         } 
 
+        // load player avatar icons
+        this.load.image("alien1", "assets/alien1.png");
+        this.load.image("alien2", "assets/alien2.png");
+        this.load.image("alien3", "assets/alien3.png");
+        this.load.image("alien4", "assets/alien4.png");
+        this.load.image("alien5", "assets/alien5.png");
+
         // load tilemaps
         this.load.image("background_tilemap_tiles", "assets/tilemaps/background_tilemap_packed.png");
         this.load.image("base_tilemap_tiles", "assets/tilemaps/base_tilemap_packed.png");
@@ -51,7 +58,6 @@ class StartScreen extends Phaser.Scene {
     }
 
     create() {
-
         // create new tilemap game object
         this.background_map = this.make.tilemap({ key: "start-end-background" });
         this.map = this.make.tilemap({ key: "start-end" });
@@ -62,6 +68,7 @@ class StartScreen extends Phaser.Scene {
         this.farm_tileset = this.map.addTilesetImage("farm_tilemap", "farm_tilemap_tiles");
         this.food_tileset = this.map.addTilesetImage("food_tilemap", "food_tilemap_tiles");
 
+        // create layers
         this.backgroundLayer = this.background_map.createLayer("Background", this.background_tileset, 0, 0);
         this.level12Layer = this.map.createLayer("Level1-2", this.base_tileset, 0, 0);
         this.level1Layer = this.map.createLayer("Level1", this.base_tileset, 0, 0);
@@ -70,11 +77,18 @@ class StartScreen extends Phaser.Scene {
         this.level3Layer = this.map.createLayer("Level3", this.base_tileset, 0, 0);
         this.level31Layer = this.map.createLayer("Level3-1", this.base_tileset, 0, 0);
 
-        this.add.text()
-        // start game
-        //this.scene.start("loadScene");
-    }
+        // title text
+        this.add.text(625, 90, "(Pint-Sized)", this.textConfig).setFontSize(30);
+        this.add.text(550, 120, "Pixel Puzzle!", this.textConfig);        
 
-    update() {
+        // choose avatar & start scene
+        this.avatar; 
+        this.add.text(530, 170, "Choose your avatar:", this.textConfig).setFontSize(35);
+        this.add.image(525, 250, "alien1").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0000.png", this.scene.start("loadScene")});
+        this.add.image(620, 250, "alien2").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0002.png", this.scene.start("loadScene")});
+        this.add.image(718, 250, "alien3").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0004.png", this.scene.start("loadScene")});
+        this.add.image(815, 250, "alien4").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0006.png", this.scene.start("loadScene")});
+        this.add.image(910, 250, "alien5").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0008.png", this.scene.start("loadScene")});
+
     }
 }

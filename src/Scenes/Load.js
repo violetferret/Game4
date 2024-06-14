@@ -73,12 +73,34 @@ class Load extends Phaser.Scene {
     create() {
         // create walking animations for player character sprite
         // TODO: fix for all types of characters to choose, use parameter?
+        this.avatar = this.scene.get("startScreenScene").avatar
+        this.jump_frame;
+        this.start_val;
+
+        if (this.avatar == "tile_0000.png") {
+            this.start_val = 0;
+            this.jump_frame = "tile_0001.png";
+        } else if (this.avatar == "tile_0002.png") {
+            this.start_val = 2;
+            this.jump_frame = "tile_0003.png";
+        } else if (this.avatar == "tile_0004.png") {
+            this.start_val = 4;
+            this.jump_frame = "tile_0005.png";
+        } else if (this.avatar == "tile_0006.png") {
+            this.start_val = 6;
+            this.jump_frame = "tile_0007.png";
+        } else if (this.avatar == "tile_0008.png") {
+            this.start_val = 8;
+            this.jump_frame = "tile_0009.png";
+        }
+        console.log(this.avatar, this.jump_frame, this.start_val)
+
         this.anims.create({
             key: 'walk',
             frames: this.anims.generateFrameNames('platformer_characters', {
                 prefix: "tile_",
-                start: 6,
-                end: 7,
+                start: this.start_val,
+                end: this.start_val + 1,
                 suffix: ".png",
                 zeroPad: 4
             }),
@@ -90,7 +112,7 @@ class Load extends Phaser.Scene {
             key: 'idle',
             defaultTextureKey: "platformer_characters",
             frames: [
-                { frame: "tile_0006.png" }
+                { frame: this.avatar }
             ],
             repeat: -1
         });
@@ -99,12 +121,12 @@ class Load extends Phaser.Scene {
             key: 'jump',
             defaultTextureKey: "platformer_characters",
             frames: [
-                { frame: "tile_0007.png" }
+                { frame: this.jump_frame }
             ],
         });
 
         // start scene
-        this.scene.start("levelThreeScene");
+        this.scene.start("levelOneScene");
     }
 
     update() {

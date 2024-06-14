@@ -80,7 +80,8 @@ class LevelOne extends Phaser.Scene {
 
         // set up player avatar
         // TODO: fix w/ choice
-        my.sprite.player = this.physics.add.sprite(30, 750, "platformer_characters", "tile_0006.png");
+        console.log(this.scene.get("startScreenScene").avatar)
+        my.sprite.player = this.physics.add.sprite(30, 750, "platformer_characters", this.scene.get("startScreenScene").avatar);
         my.sprite.player.flipX = true;
         my.sprite.player.setCollideWorldBounds(true);
 
