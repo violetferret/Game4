@@ -8,22 +8,16 @@ All art and sound effect assets are from Kenney Assets at https://kenney.nl/.
 
 All music is by Kevin MacLeod:
 
-"On My Way" Kevin MacLeod (incompetech.com) 
-
+    "On My Way" Kevin MacLeod (incompetech.com) 
     Licensed under Creative Commons: By Attribution 
-
     4.0 License http://creativecommons.org/licenses/by/4.0/
 
-"Rainbows" Kevin MacLeod (incompetech.com) 
-
+    "Rainbows" Kevin MacLeod (incompetech.com) 
     Licensed under Creative Commons: By Attribution 
-
     4.0 License http://creativecommons.org/licenses/by/4.0/
 
-"Almost New" Kevin MacLeod (incompetech.com) 
-
+    "Almost New" Kevin MacLeod (incompetech.com) 
     Licensed under Creative Commons: By Attribution 
-    
     4.0 License http://creativecommons.org/licenses/by/4.0/
 
 
