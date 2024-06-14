@@ -13,6 +13,9 @@
             "scaleInDock": 2.4741,
             "scaleInEditor": 1
         },
+        "#background_tilemap_packed": {
+            "scaleInDock": 1
+        },
         "level-1-background.tmj": {
             "scale": 0.8349,
             "selectedLayer": 0,
@@ -135,43 +138,72 @@
             "scaleInDock": 1
         },
         "level-3.tmx": {
-            "scale": 0.9687,
-            "selectedLayer": 5,
+            "scale": 0.2507,
+            "selectedLayer": 7,
             "viewCenter": {
-                "x": 4210.7979766697645,
-                "y": 585.836688345205
+                "x": 3412.445153570004,
+                "y": 1110.8895093737535
             }
         },
         "level-3.tmx#base_tilemap": {
             "scaleInDock": 1.3607,
             "scaleInEditor": 1
+        },
+        "start-end-background.tmx": {
+            "scale": 0.3401,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 877.6830344016466,
+                "y": 227.87415466039397
+            }
+        },
+        "start-end-background.tmx#background_tilemap_packed": {
+            "scaleInDock": 1
+        },
+        "start-end.tmx": {
+            "scale": 0.3586,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 737.590630228667,
+                "y": 400.1673173452316
+            }
+        },
+        "start-end.tmx#base_tilemap": {
+            "scaleInDock": 1
+        },
+        "start-end.tmx#farm_tilemap": {
+            "scaleInDock": 1
+        },
+        "start-end.tmx#food_tilemap": {
+            "scaleInDock": 1
         }
     },
     "frame.defaultDuration": 500,
     "last.exportedFilePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets",
     "last.imagePath": "/Users/elliot/Library/Mobile Documents/com~apple~CloudDocs/UCSC/2023-2024/S2024/CMPM 120/Game4/assets/tilemaps",
-    "map.height": 80,
+    "map.height": 30,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 24,
     "map.tileWidth": 24,
-    "map.width": 240,
+    "map.width": 60,
     "openFiles": [
         "level-2.tmx"
     ],
     "project": "pixel_puzzle.tiled-project",
     "property.type": "bool",
     "recentFiles": [
-        "level-2.tmx",
+        "start-end.tmx",
         "level-3-background.tmx",
+        "level-3.tmx",
+        "level-2.tmx",
         "level-1-background.tmx",
         "level-2-background.tmx",
         "level-2-background.tmj",
         "level-2.tmj",
         "level-1.tmx",
         "level-1-background.tmj",
-        "level-3-background.tmj",
-        "level-3.tmx"
+        "level-3-background.tmj"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {

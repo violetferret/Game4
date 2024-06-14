@@ -17,8 +17,6 @@ class Load extends Phaser.Scene {
         this.load.image("food_tilemap_tiles", "assets/tilemaps/food_tilemap_packed.png");
 
         // load levels
-        // this.load.tilemapTiledJSON("start", "assets/start.tmj");
-
         this.load.tilemapTiledJSON("level-1", "assets/level-1.tmj");
         this.load.tilemapTiledJSON("level-1-background", "assets/level-1-background.tmj");
 
@@ -27,8 +25,6 @@ class Load extends Phaser.Scene {
 
         this.load.tilemapTiledJSON("level-3", "assets/level-3.tmj");
         this.load.tilemapTiledJSON("level-3-background", "assets/level-3-background.tmj");
-
-        // this.load.tilemapTiledJSON("end", "assets/end.tmj");
 
         // load tilemaps as spritesheets
         this.load.spritesheet("background_tilemap_sheet", "assets/tilemaps/background_tilemap_packed.png", {
@@ -108,7 +104,7 @@ class Load extends Phaser.Scene {
         });
 
         // start scene
-        this.scene.start("levelOneScene");
+        this.scene.start("levelThreeScene");
     }
 
     update() {
