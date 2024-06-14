@@ -64,7 +64,7 @@ class Load extends Phaser.Scene {
         this.load.audio("levelThreeMusic", "assets/audio/Almost New.mp3");
 
         this.load.audio("grassWalk", "assets/audio/footstep_grass_004.ogg");
-        this.load.audio("woodWalk", "assets/audio/footstep_wood_004.ogg");
+        this.load.audio("snowWalk", "assets/audio/footstep_snow_004.ogg");
         this.load.audio("coins", "assets/audio/handleCoins2.ogg");
         this.load.audio("playerFall", "assets/audio/impactPunch_heavy_000.ogg");
         this.load.audio("jump", "assets/audio/select_006.ogg");
@@ -126,7 +126,7 @@ class Load extends Phaser.Scene {
         });
 
         // start scene
-        this.scene.start("levelThreeScene");
+        this.scene.start("levelOneScene");
     }
 
     update() {

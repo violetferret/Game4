@@ -113,9 +113,9 @@ class LevelThree extends Phaser.Scene {
         this.soundPlaying = false;
 
         // TODO: replace w/ snow walk sound
-        this.grassWalkSound = this.sound.add("grassWalk");
-        this.grassWalkSound.loop = true;
-        this.grassWalkSound.volume = 0.25;
+        this.snowWalkSound = this.sound.add("snowWalk");
+        this.snowWalkSound.loop = true;
+        this.snowWalkSound.volume = 0.25;
 
         this.coinsSound = this.sound.add("coins");
         this.coinsSound.volume = 1;
@@ -195,7 +195,7 @@ class LevelThree extends Phaser.Scene {
 
                 // play sound effect
                 if (!this.soundPlaying) {
-                    this.grassWalkSound.play();
+                    this.snowWalkSound.play();
                     this.soundPlaying = true;
                 }
             }
@@ -224,7 +224,7 @@ class LevelThree extends Phaser.Scene {
                     // | (this.map.getTileAt(my.sprite.player.x, my.sprite.player.y, this.treeTrunksLayer) == 119)) {
                     //     this.woodWalkSound.play();
                     // } else {
-                    this.grassWalkSound.play();
+                    this.snowWalkSound.play();
                     //}
                     // TODO: fix bug when this happens in the air?
                     this.soundPlaying = true;
@@ -238,7 +238,7 @@ class LevelThree extends Phaser.Scene {
             my.sprite.player.anims.play('idle');
             my.vfx.walking.stop();
 
-            this.grassWalkSound.stop();
+            this.snowWalkSound.stop();
             this.soundPlaying = false;
         }
 

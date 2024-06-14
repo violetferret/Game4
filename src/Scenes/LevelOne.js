@@ -161,10 +161,6 @@ class LevelOne extends Phaser.Scene {
         this.grassWalkSound.loop = true;
         this.grassWalkSound.volume = 0.25;
 
-        this.woodWalkSound = this.sound.add("woodWalk");
-        this.woodWalkSound.loop = true;
-        this.woodWalkSound.volume = 0.5;
-
         this.coinsSound = this.sound.add("coins");
         this.coinsSound.volume = 1;
 
