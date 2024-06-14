@@ -88,7 +88,7 @@ class StartScreen extends Phaser.Scene {
         this.add.image(620, 250, "alien2").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0002.png", this.scene.start("loadScene")});
         this.add.image(718, 250, "alien3").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0004.png", this.scene.start("loadScene")});
         this.add.image(815, 250, "alien4").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0006.png", this.scene.start("loadScene")});
-        this.add.image(910, 250, "alien5").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0008.png", this.scene.start("loadScene")});
+        this.add.image(910, 250, "alien5").setScale(3).setInteractive().on('pointerdown', () => {this.avatar = "tile_0009.png", this.scene.start("loadScene")});
 
     }
 }

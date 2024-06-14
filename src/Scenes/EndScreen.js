@@ -52,6 +52,9 @@ class EndScreen extends Phaser.Scene {
 
     create() {
 
+        // stop all sounds
+        this.sound.stopAll();
+        
         // create new tilemap game object
         this.background_map = this.make.tilemap({ key: "start-end-background" });
         this.map = this.make.tilemap({ key: "start-end" });

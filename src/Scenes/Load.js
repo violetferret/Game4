@@ -89,9 +89,9 @@ class Load extends Phaser.Scene {
         } else if (this.avatar == "tile_0006.png") {
             this.start_val = 6;
             this.jump_frame = "tile_0007.png";
-        } else if (this.avatar == "tile_0008.png") {
-            this.start_val = 8;
-            this.jump_frame = "tile_0009.png";
+        } else if (this.avatar == "tile_0009.png") {
+            this.start_val = 9;
+            this.jump_frame = "tile_0010.png";
         }
         console.log(this.avatar, this.jump_frame, this.start_val)
 
