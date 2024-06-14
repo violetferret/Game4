@@ -54,7 +54,7 @@ class EndScreen extends Phaser.Scene {
 
         // stop all sounds
         this.sound.stopAll();
-        
+
         // create new tilemap game object
         this.background_map = this.make.tilemap({ key: "start-end-background" });
         this.map = this.make.tilemap({ key: "start-end" });
@@ -81,5 +81,20 @@ class EndScreen extends Phaser.Scene {
             scene.scene.stop();
         }; this.scene.start("startScreenScene")});
         this.add.text(630, 280, "Play again?", this.textConfig).setFontSize(30).setColor("black");
+
+        // credits
+        this.add.text(470, 360, "Credits:", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(470, 395, "Design:", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(470, 430, "Programming:", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(470, 465, "Art assets:", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(470, 500, "Sound effects:", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(470, 535, "Music:", this.textConfig).setFontSize(30).setColor("black");
+
+        this.add.text(735, 395, "Elliot Ahlstroem", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(735, 430, "Elliot Ahlstroem", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(735, 465, "Kenney Assets", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(735, 500, "Kenney Assets", this.textConfig).setFontSize(30).setColor("black");
+        this.add.text(735, 535, "Kevin MacLeod", this.textConfig).setFontSize(30).setColor("black");
+
     }
 }
